@@ -29,9 +29,11 @@ class UserController {
       name: Yup.string(),
       email: Yup.string().email(),
       oldPassword: Yup.string().min(6),
-      password: Yup.min(6).when('oldPassw', (oldPassword, field) =>
-        oldPassword ? field.required() : field
-      ),
+      password: Yup.string()
+        .min(6)
+        .when('oldPassw', (oldPassword, field) =>
+          oldPassword ? field.required() : field
+        ),
       confirmPassword: Yup.string().when('password', (password, field) =>
         password ? field.required().oneof([Yup.ref('password')]) : field
       ),
