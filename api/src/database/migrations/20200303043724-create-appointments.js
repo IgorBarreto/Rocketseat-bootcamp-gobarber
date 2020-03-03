@@ -8,21 +8,26 @@ module.exports = {
         primaryKey: true,
       },
       date: {
-        allowNull: false,
         type: Sequelize.DATE,
+        allowNull: false,
       },
       user_id: {
         type: Sequelize.INTEGER,
-        references: { model: 'users', key: 'id' },
-        onDelete: 'SET NULL',
-        onUpdate: 'CASCADE',
-        allowNull: true,
+        references: {
+          model: 'users',
+          key: 'id',
+          onDelet: 'SET NULL',
+          onUpdate: 'CASCADE',
+        },
       },
       provider_id: {
         type: Sequelize.INTEGER,
-        references: { model: 'users', key: 'id' },
-        onDelete: 'SET NULL',
-        onUpdate: 'CASCADE',
+        references: {
+          model: 'users',
+          key: 'id',
+          onDelet: 'SET NULL',
+          onUpdate: 'CASCADE',
+        },
       },
       canceled_at: {
         type: Sequelize.DATE,
